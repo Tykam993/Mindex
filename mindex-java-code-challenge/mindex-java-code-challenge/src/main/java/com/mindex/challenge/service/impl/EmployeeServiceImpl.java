@@ -72,7 +72,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
             List<Employee> empReports = emp.getDirectReports();
             for(Employee empReport: empReports) {
-                // I hate this, but I'm running into an issue without it.
+                // Get the full object to access the direct reports
                 Employee temp = employeeRepository.findByEmployeeId(empReport.getEmployeeId());
                 if (temp != null) {
                     directReports.add(temp);
